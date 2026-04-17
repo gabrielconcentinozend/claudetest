@@ -1215,7 +1215,7 @@ function MigrationWizard({ isOpen, onClose, onStartMigration }: MigrationWizardP
               <SuccessRight>
                 <ChatIllustrationContainer>
                   <img
-                    src="/chat-success.svg"
+                    src={`${import.meta.env.BASE_URL}chat-success.svg`}
                     alt="Chat illustration"
                     style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                   />
@@ -1255,7 +1255,7 @@ function MigrationWizard({ isOpen, onClose, onStartMigration }: MigrationWizardP
                 </TextSection>
 
                 <BonusCard>
-                  <BonusIcon src="/bonus-icon.svg" alt="Bonus icon" />
+                  <BonusIcon src={`${import.meta.env.BASE_URL}bonus-icon.svg`} alt="Bonus icon" />
                   <BonusText>
                     <strong>An added bonus:</strong> if you're ready to take the next step in automation,
                     you'll already be set up to start leveraging new AI agent capabilities in just a few
@@ -1274,7 +1274,7 @@ function MigrationWizard({ isOpen, onClose, onStartMigration }: MigrationWizardP
                 <GradientCircle $variant="purple" />
                 <GradientCircle $variant="blue" />
                 <IllustrationContainer>
-                  <IllustrationImage src="/wizard-illustration.png" alt="Admin Center illustration" />
+                  <IllustrationImage src={`${import.meta.env.BASE_URL}wizard-illustration.png`} alt="Admin Center illustration" />
                 </IllustrationContainer>
               </GreyBackground>
             </IntroRightContent>
