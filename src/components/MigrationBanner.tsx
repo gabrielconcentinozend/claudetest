@@ -10,26 +10,41 @@ const BannerContainer = styled.div`
   overflow: hidden;
   position: relative;
   width: 100%;
+  min-height: 180px;
   margin-bottom: 32px;
 `;
 
 const GreyArea = styled.div`
   position: absolute;
-  background: rgba(246, 245, 244, 0.6);
+  background: rgba(246, 245, 244, 0.4);
   left: 6px;
   top: 6px;
   right: 6px;
   bottom: 6px;
   overflow: hidden;
   border-radius: 18px;
+  display: flex;
+  gap: 60px;
+  padding: 16px 40px 16px 20px;
+`;
+
+const BackgroundBlurryWrapper = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 352px;
+  width: 656px;
+  right: -219px;
+  top: -133px;
+  z-index: 0;
 `;
 
 const BackgroundBlurry = styled.div`
-  position: absolute;
-  height: 224px;
-  right: 150px;
-  top: -2px;
-  width: 350px;
+  position: relative;
+  height: 269.55px;
+  width: 617.99px;
+  transform: rotate(8.01deg) skewX(-1.41deg);
 `;
 
 const BlurCircle1 = styled.div`
@@ -38,11 +53,12 @@ const BlurCircle1 = styled.div`
   filter: blur(36px);
   border: 1px solid rgba(255, 255, 255, 0.4);
   height: 156px;
-  left: 100px;
-  opacity: 0.8;
-  border-radius: 102px;
-  top: 17px;
   width: 169px;
+  opacity: 0.8;
+  border-radius: 102.61px;
+  left: 50%;
+  transform: translateX(calc(-50% - 58.49px));
+  top: 17px;
 `;
 
 const BlurCircle2 = styled.div`
@@ -51,65 +67,70 @@ const BlurCircle2 = styled.div`
   filter: blur(36px);
   border: 1px solid rgba(255, 255, 255, 0.4);
   height: 177px;
-  right: 20px;
+  width: 214px;
   opacity: 0.8;
   border-radius: 100px;
+  left: 50%;
+  transform: translateX(calc(-50% + 79.01px));
   top: 103px;
-  width: 214px;
 `;
 
 const ChatPreview = styled.div`
   position: absolute;
-  right: 150px;
-  top: 17px;
-  border: 1px solid ${(p) => getColor({ theme: p.theme, variable: 'background.default' })};
-  border-radius: 10px;
-  padding: 8px;
-  background: ${(p) => getColor({ theme: p.theme, variable: 'background.default' })};
-  box-shadow: 0px 4px 8px 0px rgba(47, 57, 65, 0.2);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  bottom: 0;
+  right: 120px;
+  z-index: 2;
 `;
 
 const ContentLeft = styled.div`
   position: relative;
-  padding: 28px;
   display: flex;
   flex-direction: column;
+  gap: 12px;
   align-items: flex-start;
   justify-content: center;
-  border-radius: 20px;
-  width: 100%;
+  flex: 1;
+  min-width: 0;
   z-index: 1;
-`;
-
-const MainText = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 100%;
 `;
 
 const TextSection = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
   width: 100%;
+  justify-content: center;
+`;
+
+const TagWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
 `;
 
 const Title = styled.h2`
+  font-family: 'SF Pro Text', sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 24px;
   letter-spacing: -0.45px;
   color: ${(p) => getColor({ theme: p.theme, variable: 'foreground.default' })};
   margin: 0;
+  white-space: nowrap;
 `;
 
 const Description = styled.p`
   font-size: 14px;
   line-height: 20px;
   letter-spacing: -0.154px;
-  color: ${(p) => getColor({ theme: p.theme, variable: 'foreground.default' })};
+  color: #11121a;
   margin: 0;
+  width: min-content;
+  min-width: 100%;
 `;
 
 const ButtonGroup = styled.div`
@@ -118,17 +139,14 @@ const ButtonGroup = styled.div`
   align-items: center;
 `;
 
-// Placeholder chat illustration (using a simple SVG as placeholder)
+const ChatImage = styled.img`
+  display: block;
+  height: auto;
+  width: 150px;
+`;
+
 const ChatIllustration = () => (
-  <svg width="166" height="255" viewBox="0 0 166 255" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="166" height="255" rx="5" fill="white"/>
-    <rect x="10" y="10" width="146" height="30" rx="4" fill="#F6F5F4"/>
-    <circle cx="30" cy="70" r="15" fill="#D6D0EB"/>
-    <rect x="50" y="60" width="90" height="20" rx="4" fill="#E8E5F4"/>
-    <circle cx="136" cy="120" r="15" fill="#1F73B7"/>
-    <rect x="26" y="110" width="90" height="20" rx="4" fill="#D6EEF1"/>
-    <rect x="10" y="220" width="146" height="25" rx="4" fill="#F6F5F4"/>
-  </svg>
+  <ChatImage src={`${import.meta.env.BASE_URL}chat-banner-real.png`} alt="Chat illustration" />
 );
 
 interface MigrationBannerProps {
@@ -142,39 +160,40 @@ function MigrationBanner({ onGetStarted, onLearnMore, hasSavedProgress }: Migrat
   return (
     <BannerContainer>
       <GreyArea>
-        <BackgroundBlurry>
-          <BlurCircle1 />
-          <BlurCircle2 />
-        </BackgroundBlurry>
-        <ChatPreview>
-          <ChatIllustration />
-        </ChatPreview>
-      </GreyArea>
-
-      <ContentLeft>
-        <MainText>
+        <ContentLeft>
           <TextSection>
-            <div style={{ display: 'flex' }}>
-              <Tag isPill>
+            <TagWrapper>
+              <Tag isPill size="small">
                 <span>Complete by June 1st</span>
               </Tag>
-            </div>
-            <Title>Your Messenger responses are being moved</Title>
+              <Title>Your Messenger responses are being moved</Title>
+            </TagWrapper>
             <Description>
-              Your automated responses are moving to the new AI agent dashboard. You can start the migration now, and start exploring.
+              Your automated responses are moving to the new AI agent dashboard. Start the migration now, and start exploring.
             </Description>
           </TextSection>
 
           <ButtonGroup>
             <Button isPrimary size="small" onClick={onGetStarted}>
-              {hasSavedProgress ? 'Continue migration' : 'Get started'}
+              {hasSavedProgress ? 'Continue migration' : 'Start assisted migration'}
             </Button>
             <Button size="small" onClick={onLearnMore}>
               Learn more
             </Button>
           </ButtonGroup>
-        </MainText>
-      </ContentLeft>
+        </ContentLeft>
+
+        <BackgroundBlurryWrapper>
+          <BackgroundBlurry>
+            <BlurCircle1 />
+            <BlurCircle2 />
+          </BackgroundBlurry>
+        </BackgroundBlurryWrapper>
+
+        <ChatPreview>
+          <ChatIllustration />
+        </ChatPreview>
+      </GreyArea>
     </BannerContainer>
   );
 }

@@ -884,7 +884,8 @@ function MigrationWizard({ isOpen, onClose, onStartMigration }: MigrationWizardP
   const [selectedSchedule, setSelectedSchedule] = useState('Custom schedule');
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectedTab, setSelectedTab] = useState('during');
-  const [firstMessage, setFirstMessage] = useState('');
+  const [firstMessage, setFirstMessage] = useState('Hi, how can I help you?');
+  const [followUpMessage, setFollowUpMessage] = useState('Bye, have a nice day!');
   const [currentMessengerIndex, setCurrentMessengerIndex] = useState(0);
   const [agentName, setAgentName] = useState('');
   const [agentLanguage, setAgentLanguage] = useState('English');
@@ -963,22 +964,22 @@ function MigrationWizard({ isOpen, onClose, onStartMigration }: MigrationWizardP
 
     const currentChannel = selected[currentMigratingIndex];
 
-    // Simular progressão para o canal atual (3 segundos entre cada etapa)
+    // Simular progressão para o canal atual (2 segundos entre cada etapa)
     const timeout0 = setTimeout(() => {
       setMigrationSteps(prev => ({ ...prev, [currentChannel.id]: 0 }));
     }, 100);
 
     const timeout1 = setTimeout(() => {
       setMigrationSteps(prev => ({ ...prev, [currentChannel.id]: 1 }));
-    }, 3100);
+    }, 2100);
 
     const timeout2 = setTimeout(() => {
       setMigrationSteps(prev => ({ ...prev, [currentChannel.id]: 2 }));
-    }, 6100);
+    }, 4100);
 
     const timeout3 = setTimeout(() => {
       setMigrationSteps(prev => ({ ...prev, [currentChannel.id]: 3 }));
-    }, 9100);
+    }, 6100);
 
     // Quando terminar, ir para o próximo canal ou mostrar tela de sucesso
     const timeoutNext = setTimeout(() => {
@@ -988,7 +989,7 @@ function MigrationWizard({ isOpen, onClose, onStartMigration }: MigrationWizardP
         // Todos os canais concluídos, mostrar tela de sucesso
         setShowSuccessScreen(true);
       }
-    }, 9200);
+    }, 6200);
 
     return () => {
       clearTimeout(timeout0);
@@ -1551,7 +1552,11 @@ function MigrationWizard({ isOpen, onClose, onStartMigration }: MigrationWizardP
                                 <Field>
                                   <Label>Follow-up message</Label>
                                   <Hint>Let your customer know what will happen next</Hint>
-                                  <StyledTextarea placeholder="This is a follow up." />
+                                  <StyledTextarea
+                                    placeholder="This is a follow up."
+                                    value={followUpMessage}
+                                    onChange={(e) => setFollowUpMessage(e.target.value)}
+                                  />
                                 </Field>
                               </div>
                             </TabPanel>
@@ -1561,7 +1566,11 @@ function MigrationWizard({ isOpen, onClose, onStartMigration }: MigrationWizardP
                                   <Field>
                                     <Label>First message</Label>
                                     <Hint>Greet your customers when they launch the messaging widget</Hint>
-                                    <StyledTextarea placeholder="This is a greeting." />
+                                    <StyledTextarea
+                                      placeholder="This is a greeting."
+                                      value={firstMessage}
+                                      onChange={(e) => setFirstMessage(e.target.value)}
+                                    />
                                   </Field>
 
                                   <Field>
@@ -1581,7 +1590,11 @@ function MigrationWizard({ isOpen, onClose, onStartMigration }: MigrationWizardP
                                   <Field>
                                     <Label>Follow-up message</Label>
                                     <Hint>Let your customer know what will happen next</Hint>
-                                    <StyledTextarea placeholder="This is a follow up." />
+                                    <StyledTextarea
+                                      placeholder="This is a follow up."
+                                      value={followUpMessage}
+                                      onChange={(e) => setFollowUpMessage(e.target.value)}
+                                    />
                                   </Field>
                                 </div>
                               </TabPanel>
