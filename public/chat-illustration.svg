@@ -1,0 +1,29 @@
+<svg width="138" height="211" viewBox="0 0 138 211" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="138" height="211" rx="5" fill="white"/>
+
+  <!-- Chat Nav (top bar) -->
+  <rect width="138" height="31.38" rx="3" fill="#17494D"/>
+  <rect x="12.54" y="15.19" width="57.52" height="3.59" rx="1.79" fill="white" opacity="0.8"/>
+
+  <!-- First Message (from user - right side) -->
+  <g transform="translate(0, 49.7)">
+    <!-- Avatar -->
+    <circle cx="118.91" cy="12.15" r="12.15" fill="#FED6A8"/>
+    <!-- Message bubble -->
+    <rect x="31.46" y="0.51" width="77.91" height="40.35" rx="5" fill="#E8E5F4"/>
+  </g>
+
+  <!-- Second Message (from bot - left side) -->
+  <g transform="translate(0, 107.13)">
+    <!-- Bot Avatar -->
+    <rect x="0" y="0" width="24.3" height="24.36" rx="5" fill="#C2C8CC"/>
+    <path d="M12.15 8L12.15 16.36M8 12.18L16.3 12.18" stroke="#17494D" stroke-width="2" stroke-linecap="round"/>
+    <!-- Message bubble -->
+    <rect x="31.46" y="1.1" width="81.49" height="31.38" rx="5" fill="#D6EEF1"/>
+  </g>
+
+  <!-- Type Box (bottom) -->
+  <rect y="178.41" width="138" height="32.28" rx="3" fill="#F6F5F4"/>
+  <rect x="10" y="188" width="80" height="12" rx="2" fill="#E0E0E0" opacity="0.5"/>
+</svg>

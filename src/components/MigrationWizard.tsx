@@ -1208,7 +1208,17 @@ function MigrationWizard({ isOpen, onClose, onStartMigration }: MigrationWizardP
                   </TextSection>
                 </MainText>
 
-                <Button isPrimary onClick={() => window.open('#', '_blank')} style={{ width: 'fit-content' }}>
+                <Button
+                  isPrimary
+                  as="a"
+                  href={import.meta.env.DEV
+                    ? "http://localhost:5180/?from=migration"
+                    : "https://gabrielconcentinozend.github.io/prototype-ai-agents-dashboard/?from=migration"
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ width: 'fit-content', textDecoration: 'none' }}
+                >
                   Go to AI agents dashboard
                 </Button>
               </SuccessLeft>

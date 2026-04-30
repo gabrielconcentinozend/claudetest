@@ -1,0 +1,45 @@
+<svg width="146" height="220" viewBox="0 0 146 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main Background -->
+  <rect width="146" height="220" rx="6" fill="white"/>
+
+  <!-- Top Navigation Bar -->
+  <rect width="146" height="32" rx="3" fill="#17494D"/>
+  <rect x="13" y="14" width="65" height="4" rx="2" fill="white" opacity="0.9"/>
+
+  <!-- First Message Bubble (User - Right side with avatar) -->
+  <g transform="translate(0, 52)">
+    <!-- Message bubble (beige/cream color) -->
+    <rect x="30" y="0" width="106" height="42" rx="6" fill="#FED6A8"/>
+    <!-- Lines inside message -->
+    <rect x="38" y="10" width="70" height="4" rx="2" fill="#17494D" opacity="0.3"/>
+    <rect x="38" y="20" width="85" height="4" rx="2" fill="#17494D" opacity="0.3"/>
+    <rect x="38" y="30" width="55" height="4" rx="2" fill="#17494D" opacity="0.3"/>
+
+    <!-- Avatar (right side) -->
+    <circle cx="130" cy="21" r="13" fill="#FFD166"/>
+    <!-- Avatar face -->
+    <circle cx="127" cy="18" r="2" fill="#17494D"/>
+    <circle cx="133" cy="18" r="2" fill="#17494D"/>
+    <path d="M127 25 Q130 27 133 25" stroke="#17494D" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Second Message Bubble (Bot - Left side with bot avatar) -->
+  <g transform="translate(0, 115)">
+    <!-- Bot Avatar (left side - teal with bot icon) -->
+    <rect x="0" y="0" width="26" height="26" rx="5" fill="#B8E0E6"/>
+    <!-- Bot icon (simple +) -->
+    <line x1="13" y1="8" x2="13" y2="18" stroke="#17494D" stroke-width="2" stroke-linecap="round"/>
+    <line x1="8" y1="13" x2="18" y2="13" stroke="#17494D" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Message bubble (light blue) -->
+    <rect x="32" y="0" width="106" height="42" rx="6" fill="#D6EEF1"/>
+    <!-- Lines inside message -->
+    <rect x="40" y="10" width="80" height="4" rx="2" fill="#17494D" opacity="0.3"/>
+    <rect x="40" y="20" width="70" height="4" rx="2" fill="#17494D" opacity="0.3"/>
+    <rect x="40" y="30" width="60" height="4" rx="2" fill="#17494D" opacity="0.3"/>
+  </g>
+
+  <!-- Bottom Input Area -->
+  <rect y="185" width="146" height="35" rx="4" fill="#F6F5F4"/>
+  <rect x="12" y="196" width="90" height="12" rx="3" fill="#E0E0E0" opacity="0.4"/>
+</svg>
