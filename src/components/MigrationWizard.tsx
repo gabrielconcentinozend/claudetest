@@ -1211,7 +1211,7 @@ function MigrationWizard({ isOpen, onClose, onStartMigration }: MigrationWizardP
                 <a
                   href={import.meta.env.DEV
                     ? "http://localhost:5180/?from=migration"
-                    : "https://zendesk.github.io/prototype-ai-agents-dashboard/?from=migration"
+                    : "https://laughing-guacamole-wwnrp4l.pages.github.io/?from=migration"
                   }
                   target="_blank"
                   rel="noopener noreferrer"
