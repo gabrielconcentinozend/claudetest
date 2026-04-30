@@ -1208,19 +1208,19 @@ function MigrationWizard({ isOpen, onClose, onStartMigration }: MigrationWizardP
                   </TextSection>
                 </MainText>
 
-                <Button
-                  isPrimary
-                  as="a"
+                <a
                   href={import.meta.env.DEV
                     ? "http://localhost:5180/?from=migration"
                     : "https://gabrielconcentinozend.github.io/prototype-ai-agents-dashboard/?from=migration"
                   }
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ width: 'fit-content', textDecoration: 'none' }}
+                  style={{ textDecoration: 'none' }}
                 >
-                  Go to AI agents dashboard
-                </Button>
+                  <Button isPrimary style={{ width: 'fit-content' }}>
+                    Go to AI agents dashboard
+                  </Button>
+                </a>
               </SuccessLeft>
 
               <SuccessRight>
